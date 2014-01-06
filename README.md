@@ -1,4 +1,4 @@
-(Working example)[http://coryklein.com/babysitting-ring-manager]
+[Working example](http://coryklein.com/babysitting-ring-manager)
 
 babysitting-ring-manager
 ========================
