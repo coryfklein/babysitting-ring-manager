@@ -1,6 +1,6 @@
 angular.module('scheduleAssignments', ['ngRoute', 'firebase'])
 
-.value('firebaseUrl', 'https://babysitting.firebaseio.com/')
+.value('firebaseUrl', 'https://babysitting-ring-manager.firebaseio.com/')
 
 .factory('BabysittingData', function(angularFireCollection, firebaseUrl) {
     return angularFireCollection(new Firebase(firebaseUrl));
