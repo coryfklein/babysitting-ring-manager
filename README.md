@@ -8,4 +8,4 @@ A web app that can be used to organize the schedule and contact information for 
 Dependencies
 ============
 
-(bootstrap-timepicker)[https://github.com/jdewit/bootstrap-timepicker]
+[bootstrap-timepicker](https://github.com/jdewit/bootstrap-timepicker)
