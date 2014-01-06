@@ -1,0 +1,52 @@
+<form name="assignmentForm" class="well">
+
+  <h3>New Schedule Item</h3>
+  <div class="control-group" ng-class="{error: assignmentForm.date.$invalid}">
+    <label>Date</label>
+    <div id="datepicker-container">
+      <div class="input-append date">
+        <input name="date" ng-model="scheduleAssignment.date" type="text" required>
+        <span class="add-on"><i class="icon-th"></i></span>
+      </div>
+      <span ng-show="assignmentForm.date.$error.required" class="help-inline">Required</span>
+    </div>
+  </div>
+  <script type="text/javascript">
+$('#datepicker-container .input-append.date').datepicker({
+    format: "yyyy-mm-dd",
+    //daysOfWeekDisabled: "0,1,2,3,4",
+    todayHighlight: true
+});
+  </script>
+
+  <div class="control-group" ng-class="{error: assignmentForm.startTime.$invalid}">
+    <label>Start Time</label>
+    <div id="timepicker-container">
+      <div class="input-append" ng-init="scheduleAssignment.startTime='4:00 PM'">
+        <input name="startTime" ng-model="scheduleAssignment.startTime" id="timepicker" type="text" class="input-small">
+        <span class="add-on"><i class="icon-time"></i></span>
+      </div>
+    </div>
+  </div>
+  <script type="text/javascript">
+$('#timepicker').timepicker({
+defaultTime: "4:00 PM"
+});
+  </script>
+
+  <div class="control-group">
+    <label>Assignment</label>
+    <select ng-model="scheduleAssignment.family" ng-options="family.familyName for family in babysittingData | filter: {type: 'family'}">
+    </select>
+  </div>
+
+  <label>Notes</label>
+  <textarea name="notes" ng-model="scheduleAssignment.notes"></textarea>
+
+  <br>
+  <a href="#/" class="btn">Cancel</a>
+  <button ng-click="save()" ng-disabled="isClean() || assignmentForm.$invalid" ng-init="scheduleAssignment.type='scheduleAssignment'"
+    class="btn btn-primary">Save</button>
+  <button ng-click="destroy()"
+    ng-show="scheduleAssignment.$id" class="btn btn-danger">Delete</button>
+</form>

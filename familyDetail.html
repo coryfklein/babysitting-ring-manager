@@ -1,0 +1,76 @@
+<form name="familyForm" class="well">
+
+  <h2>{{family.familyName || 'Family'}}</h2>
+  <div class="control-group" ng-class="{error: familyForm.familyName.$invalid}">
+    <label>Family Name</label>
+    <input type="text" name="familyName" ng-model="family.familyName" required>
+    <span ng-show="familyForm.familyName.$error.required" class="help-inline">
+      Required</span>
+  </div>
+
+  <div class="control-group" ng-class="{error: familyForm.address.$invalid}">
+    <label>Street Address</label>
+    <input type="text" name="address" ng-model="family.address" required>
+    <span ng-show="familyForm.address.$error.required" class="help-inline">
+      Required</span>
+  </div>
+
+  <div class="control-group" ng-class="{error: familyForm.zipcode.$invalid}">
+    <label>Zip Code</label>
+    <input type="text" name="zipcode" ng-model="family.zipcode" required>
+    <span ng-show="familyForm.zipcode.$error.required" class="help-inline">
+      Required</span>
+  </div>
+
+  <h3>{{family.firstContactName || 'First Contact'}}</h3>
+  <div class="well">
+    <div class="control-group" ng-class="{error: familyForm.firstContactName.$invalid}">
+      <label>First name</label>
+      <input type="text" name="firstContactName" ng-model="family.firstContactName" required>
+      <span ng-show="familyForm.firstContactName.$error.required" class="help-inline">
+        Required</span>
+    </div>
+    <div class="control-group" ng-class="{error: familyForm.firstContactPhone.$invalid}">
+      <label>Phone</label>
+      <input type="tel" name="firstContactPhone" ng-model="family.firstContactPhone" required>
+      <span ng-show="familyForm.firstContactPhone.$error.required" class="help-inline">
+        Required</span>
+    </div>
+    <div class="control-group" ng-class="{error: familyForm.firstContactEmail.$invalid}">
+      <label>Email</label>
+      <input type="email" name="firstContactEmail" ng-model="family.firstContactEmail" required>
+      <span ng-show="familyForm.firstContactEmail.$error.required" class="help-inline">
+        Required</span>
+    </div>
+  </div>
+
+  <h3>{{family.secondContactName || 'Second Contact'}}</h3>
+  <div class="well">
+    <div class="control-group" ng-class="{error: familyForm.secondContactName.$invalid}">
+      <label>Second name</label>
+      <input type="text" name="secondContactName" ng-model="family.secondContactName" required>
+      <span ng-show="familyForm.secondContactName.$error.required" class="help-inline">
+        Required</span>
+    </div>
+    <div class="control-group" ng-class="{error: familyForm.secondContactPhone.$invalid}">
+      <label>Phone</label>
+      <input type="tel" name="secondContactPhone" ng-model="family.secondContactPhone" required>
+      <span ng-show="familyForm.secondContactPhone.$error.required" class="help-inline">
+        Required</span>
+    </div>
+    <div class="control-group" ng-class="{error: familyForm.secondContactEmail.$invalid}">
+      <label>Email</label>
+      <input type="email" name="secondContactEmail" ng-model="family.secondContactEmail" required>
+      <span ng-show="familyForm.secondContactEmail.$error.required" class="help-inline">
+        Required</span>
+    </div>
+  </div>
+
+  <br>
+  <a href="#/" class="btn">Cancel</a>
+  <button ng-click="save()" ng-disabled="isClean() || familyForm.$invalid" ng-init="family.type='family'"
+    class="btn btn-primary">Save</button>
+  <button ng-click="destroy()"
+    ng-show="family.$id" class="btn btn-danger">Delete</button>
+</form>
+

@@ -1,0 +1,32 @@
+.editPencil {
+    padding-left: 8px;
+}
+
+.addFamilyButton {
+    padding-top: 12px;
+    padding-bottom: 6px;
+}
+
+.contactName, .address {
+    padding-top: 6px;
+    padding-bottom: 6px;
+}
+
+.contactDetails {
+    padding-left: 12px;
+}
+
+table tbody tr:hover td
+{
+    background: #e8e8e8;
+}
+
+table tbody tr.None td {
+    background-color: #ede;
+    color: #825;
+}
+
+table tbody tr.None:hover td {
+    background-color: #dcd;
+    color: #825;
+}

@@ -1,0 +1,43 @@
+<h1>Babysitting Ring</h1>
+
+<div class="well">
+  <h2>Schedule</h2>
+  <input type="text" ng-model="search" class="form-control" placeholder="Search">
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Date</th>
+        <th>Time</th>
+        <th>Family</th>
+        <th>Notes</th>
+        <th><a href="#/new-assignment">Add&nbsp;<i class="fa fa-plus-circle"></i></a></th>
+      </tr>
+    </thead>
+    <tbody>
+    <tr class="{{scheduleAssignment.family.familyName}}" ng-repeat="scheduleAssignment in babysittingData | filter: { type: 'scheduleAssignment' } | filter:search | orderBy:'date'">
+      <td>{{scheduleAssignment.date | date: 'MMM d, yyyy'}}</td>
+      <td>{{scheduleAssignment.startTime}}</td>
+      <td>{{scheduleAssignment.family.familyName}}</td>
+      <td>{{scheduleAssignment.notes}}</td>
+      <td>
+        <a href="#/edit-assignment/{{scheduleAssignment.$id}}"><i class="fa fa-pencil"></i></a>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="well">
+  <div ng-repeat="family in babysittingData | filter: { type: 'family', familyName: '!none' } | orderBy:'familyName'" >
+    <h3 class="familyNameHeader">
+      {{family.familyName}}
+      <a href="#/edit-family/{{family.$id}}" class="editPencil"><i class="fa fa-pencil"></i></a>
+    </h3>
+    <div class="address">{{family.address}}, {{family.zipcode}}</div>
+    <div class="contactName">{{family.firstContactName}}</div>
+    <div class="contactDetails"><a href="mailto:{{family.firstContactEmail">{{family.firstContactEmail}}</a> / {{family.firstContactPhone}}</div>
+    <div class="contactName">{{family.secondContactName}}</div>
+    <div class="contactDetails"><a href="mailto:{{family.secondContactEmail">{{family.secondContactEmail}}</a> / {{family.secondContactPhone}}</div>
+  </div>
+  <h4 class="addFamilyButton"><a href="#/new-family"><i class="fa fa-plus-circle">&nbsp;</i>Add Family</a></h4>
+</div>
